@@ -1,7 +1,7 @@
 import Layout from '../components/Layout';
 import ShowLink from '../components/ShowLink';
 import fetch from 'isomorphic-unfetch';
-
+export const config = { amp: true };
 const Index = props => (
     <Layout>
         <h1>Batman TV Shows</h1>
