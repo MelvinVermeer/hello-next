@@ -3,15 +3,15 @@ import ShowLink from '../components/ShowLink';
 import fetch from 'isomorphic-unfetch';
 
 const Index = props => (
-  <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(show => (
-       
-          <ShowLink key={show.id} show={show} />
-      ))}
-    </ul>
-    <style jsx>{`
+    <Layout>
+        <h1>Batman TV Shows</h1>
+        <ul>
+            {props.shows.map(show => (
+
+                <ShowLink key={show.id} show={show} />
+            ))}
+        </ul>
+        <style jsx>{`
         h1,
         a {
           font-family: 'Arial';
@@ -35,18 +35,18 @@ const Index = props => (
           opacity: 0.6;
         }
         `}</style>
-  </Layout>
+    </Layout>
 );
 
-Index.getInitialProps = async function() {
-  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-  const data = await res.json();
+Index.getInitialProps = async function () {
+    const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+    const data = await res.json();
 
-  console.log(`Show data fetched. Count: ${data.length}`);
+    console.log(`Show data fetched. Count: ${data.length}`);
 
-  return {
-    shows: data.map(entry => entry.show)
-  };
+    return {
+        shows: data.map(entry => entry.show)
+    };
 };
 
 export default Index;
